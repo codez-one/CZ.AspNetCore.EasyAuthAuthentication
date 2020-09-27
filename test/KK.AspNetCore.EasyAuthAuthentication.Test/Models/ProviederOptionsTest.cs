@@ -81,5 +81,16 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test.Models
             Assert.Equal("Pferd", options.RoleClaimType);
             Assert.Equal(providerName, options.ProviderName);
         }
+
+        [Fact]
+        public void IfTheClaimTypeIsSetInCtorItMustBePresentInTheOptions()
+        {
+            // Arrange
+            // Act
+            var options = new ProviderOptions("this is a test provieder", "this is a test name claim type");
+            // Assert
+            Assert.Equal("this is a test provieder", options.ProviderName);
+            Assert.Equal("this is a test name claim type", options.NameClaimType);
+        }
     }
 }

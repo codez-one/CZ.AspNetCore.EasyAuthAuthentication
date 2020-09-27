@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("KK.AspNetCore.EasyAuthAuthentication.Test")]
 namespace KK.AspNetCore.EasyAuthAuthentication.Services
 {
     using System;
@@ -11,8 +14,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-
+    using Newtonsoft.Json.Linq;    
     internal class LocalAuthMeService
     {
         public LocalAuthMeService(
