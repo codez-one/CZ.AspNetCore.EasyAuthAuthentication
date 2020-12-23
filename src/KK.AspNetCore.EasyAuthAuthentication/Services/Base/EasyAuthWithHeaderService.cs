@@ -1,4 +1,4 @@
-namespace KK.AspNetCore.EasyAuthAuthentication.Services
+namespace KK.AspNetCore.EasyAuthAuthentication.Services.Base
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
     /// <summary>
     /// A service that can be used to authentificat a user principal in the <see cref="EasyAuthAuthenticationHandler"/>.
     /// </summary>
-    public abstract class EasyAuthWithHeaderService<T> : IEasyAuthAuthentificationService where T : IEasyAuthAuthentificationService
+    public abstract class EasyAuthWithHeaderService<TypeOfService> : IEasyAuthAuthentificationService where TypeOfService : IEasyAuthAuthentificationService
     {
         private const string PrincipalObjectHeader = "X-MS-CLIENT-PRINCIPAL";
         protected const string PrincipalIdpHeaderName = "X-MS-CLIENT-PRINCIPAL-IDP";
@@ -27,7 +27,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
             (headers, headerName) => !string.IsNullOrEmpty(headers[headerName].ToString());
 
 #pragma warning disable IDE1006 // Naming Styles rule is broken
-        protected ProviderOptions defaultOptions = new ProviderOptions(typeof(T).Name, ClaimTypes.Email, ClaimTypes.Role);
+        protected ProviderOptions defaultOptions = new ProviderOptions(typeof(TypeOfService).Name, ClaimTypes.Email, ClaimTypes.Role);
 #pragma warning restore IDE1006 // Naming Styles
 
 
@@ -37,7 +37,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
         /// </summary>
         /// <param name="logger">The logger for this service.</param>
         public EasyAuthWithHeaderService(
-            ILogger<EasyAuthWithHeaderService<T>> logger) => this.Logger = logger;
+            ILogger<EasyAuthWithHeaderService<TypeOfService>> logger) => this.Logger = logger;
 
         protected ILogger Logger { get; }
 

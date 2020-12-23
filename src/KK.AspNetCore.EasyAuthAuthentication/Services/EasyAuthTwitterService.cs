@@ -6,6 +6,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
+    using KK.AspNetCore.EasyAuthAuthentication.Services.Base;
 
     public class EasyAuthTwitterService : EasyAuthWithHeaderService<EasyAuthTwitterService>, IEasyAuthAuthentificationService
     {
