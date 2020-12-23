@@ -86,6 +86,22 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test.Services
         }
 
         [Fact]
+        public void IfAValidJwtTokenWithAnUpnPropertyIsInTheHeaderTheResultContainsTheUpnAsIdentity()
+        {
+            // Arrange
+            var handler = new EasyAuthForAuthorizationTokenService(this.loggerFactory.CreateLogger<EasyAuthForAuthorizationTokenService>());
+            var httpcontext = new DefaultHttpContext();
+            var jwtWithoutIdpProperty = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIwN2Q2ZDE1YS1jZTg5LTQ4MmMtOTcxYi01NDMxYjc1MTkxNjciLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9lOTgxZGNhZi05MTk3LTQ3N2YtYmQwNi0wZTU3MmIwYjMzNDcvIiwiaWF0IjoxNTYyNjk4ODc2LCJuYmYiOjE1NjI2OTg4NzYsImV4cCI6MTU2MjcwMjc3NiwiYWlvIjoiNDJaZ1lPQmZzRzd0ZEg1ZVBpSHZvNU9QdDdyT0J3QT0iLCJhcHBpZCI6ImQzMTViZmFmLTYzMDQtNGY5Zi04MjFjLTU0NmJkYzAwYjViMCIsInVwbiI6InRlc3R1c2VyQHRlc3QuZGUiLCJhcHBpZGFjciI6IjEiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9lOTgxZGNhZi05MTk3LTQ3N2YtYmQwNi0wZTU3MmIwYjMzNDcvIiwib2lkIjoiZjVmOWZhODYtNDQxNC00NGM3LTgwZjgtZjc4MGFlMGFiZjIxIiwicm9sZXMiOlsiU3lzdGVtQWRtaW4iXSwic3ViIjoiZjVmOWZhODYtNDQxNC00NGM3LTgwZjgtZjc4MGFlMGFiZjIxIiwidGlkIjoiZTk4MWRjYWYtOTE5Ny00NzdmLWJkMDYtMGU1NzJiMGIzMzQ3IiwidXRpIjoiaENKdTNvaDd3VWVaYWk1UUpPWUFBQSIsInZlciI6IjEuMCJ9.T2vYwRaOFtISgoaMgg6XJ-pZEA5SOhqW09mF7TsGDBY";
+            httpcontext.Request.Headers.Add("Authorization", jwtWithoutIdpProperty);
+            // Act
+            var result = handler.AuthUser(httpcontext);
+            // Arrange
+            Assert.True(result.Succeeded);
+            Assert.True(result.Principal.HasClaim(ClaimTypes.Role, "SystemAdmin"));
+            Assert.Equal("testuser@test.de", result.Principal.Identity.Name);
+        }
+
+        [Fact]
         public void IfAValidJwtTokenWithoutIdpAndIssPropertyIsInTheHeaderItsThrowsAnError()
         {
             // Arrange
