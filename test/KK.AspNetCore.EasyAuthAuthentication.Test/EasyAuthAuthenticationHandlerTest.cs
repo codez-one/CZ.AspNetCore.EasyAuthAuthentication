@@ -40,11 +40,10 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "True");
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION", "RedirectToLoginPage");            
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = true });
-                                                           
             
             var services = new ServiceCollection().AddOptions()
                 .AddSingleton<IOptionsFactory<EasyAuthAuthenticationOptions>, OptionsFactory<EasyAuthAuthenticationOptions>>()                
@@ -74,7 +73,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "True");
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION", "RedirectToLoginPage");
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = false });
@@ -107,7 +106,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "True");
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION", "RedirectToLoginPage");
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = false });
@@ -142,7 +141,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "True");
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION", "RedirectToLoginPage");
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = false });
@@ -175,7 +174,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "True");
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION", "RedirectToLoginPage");
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = false });
@@ -208,7 +207,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "True");
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION", "RedirectToLoginPage");
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = false });
@@ -238,7 +237,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "True");
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION", "AllowAnonymous");
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = false });
@@ -250,7 +249,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
                 .BuildServiceProvider();
             var monitor = services.GetRequiredService<IOptionsMonitor<EasyAuthAuthenticationOptions>>();
 
-            Assert.Throws<ArgumentException>(() => new EasyAuthAuthenticationHandler(monitor, new List<IEasyAuthAuthentificationService>(), this.loggerFactory, this.urlEncoder, this.clock, config));           
+            _ = Assert.Throws<ArgumentException>(() => new EasyAuthAuthenticationHandler(monitor, new List<IEasyAuthAuthentificationService>(), this.loggerFactory, this.urlEncoder, this.clock, config));           
         }
 
         [Fact]
@@ -259,7 +258,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             // Arrange
             System.Environment.SetEnvironmentVariable("APPSETTING_WEBSITE_AUTH_ENABLED", "False");            
             var configBuilder = new ConfigurationBuilder();
-            configBuilder.AddEnvironmentVariables();
+            _ = configBuilder.AddEnvironmentVariables();
             var config = configBuilder.Build();
             var options = new EasyAuthAuthenticationOptions();
             options.AddProviderOptions(new ProviderOptions("TestProvider") { Enabled = false });

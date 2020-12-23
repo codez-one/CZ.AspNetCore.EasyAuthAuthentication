@@ -6,6 +6,10 @@
 			"path": "./src/KK.AspNetCore.EasyAuthAuthentication"
 		},
 		{
+			"name": "Tests",
+			"path": "./test/KK.AspNetCore.EasyAuthAuthentication.Test"
+		},
+		{
 			"name": "EasyAuth Middleware Sample Web",
 			"path": "./samples/KK.AspNetCore.EasyAuthAuthentication.Samples.Web"
 		},

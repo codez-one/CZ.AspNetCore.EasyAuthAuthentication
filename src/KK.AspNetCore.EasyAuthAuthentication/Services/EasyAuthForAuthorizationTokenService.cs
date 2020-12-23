@@ -85,7 +85,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
                 Typ = options.NameClaimType,
                 Values = xMsClientPrincipal.ContainsKey("upn") ?
                     xMsClientPrincipal["upn"].ToString() : // this appends if an user is using the auth token from the /.auth/me site on the website
-                    xMsClientPrincipal["appid"].ToString() // this appends if an applicaiton is try accessing the app.
+                    xMsClientPrincipal["appid"].ToString() // this appends if an application is try accessing the app.
             });
             return claims;
         }

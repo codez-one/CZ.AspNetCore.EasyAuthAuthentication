@@ -94,7 +94,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test.Services
             var jwtWithoutIdpProperty = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIwN2Q2ZDE1YS1jZTg5LTQ4MmMtOTcxYi01NDMxYjc1MTkxNjciLCJpYXQiOjE1NjI2OTg4NzYsIm5iZiI6MTU2MjY5ODg3NiwiZXhwIjoxNTYyNzAyNzc2LCJhaW8iOiI0MlpnWU9CZnNHN3RkSDVlUGlIdm81T1B0N3JPQndBPSIsImFwcGlkIjoiZDMxNWJmYWYtNjMwNC00ZjlmLTgyMWMtNTQ2YmRjMDBiNWIwIiwiYXBwaWRhY3IiOiIxIiwib2lkIjoiZjVmOWZhODYtNDQxNC00NGM3LTgwZjgtZjc4MGFlMGFiZjIxIiwicm9sZXMiOlsiU3lzdGVtQWRtaW4iXSwic3ViIjoiZjVmOWZhODYtNDQxNC00NGM3LTgwZjgtZjc4MGFlMGFiZjIxIiwidGlkIjoiZTk4MWRjYWYtOTE5Ny00NzdmLWJkMDYtMGU1NzJiMGIzMzQ3IiwidXRpIjoiaENKdTNvaDd3VWVaYWk1UUpPWUFBQSIsInZlciI6IjEuMCJ9.6hcHmq8VahVMqtvA9DJdoY-NIUjkPgMEfryGuLVJMHw";
             httpcontext.Request.Headers.Add("Authorization", jwtWithoutIdpProperty);
             // Act && Arrange
-            Assert.Throws<ArgumentException>(() => handler.AuthUser(httpcontext));
+            _ = Assert.Throws<ArgumentException>(() => handler.AuthUser(httpcontext));
         }
     }
 }
