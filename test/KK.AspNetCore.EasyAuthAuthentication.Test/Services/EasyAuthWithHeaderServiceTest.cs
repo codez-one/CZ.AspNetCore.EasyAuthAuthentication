@@ -60,12 +60,12 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test.Services
         }
 
         [Theory]
-        [InlineData(typeof(EasyAuthAzureAdService), "aad", AuthTokenHeaderNames.AADIdToken)]
-        [InlineData(typeof(EasyAuthTwitterService), "twitter", AuthTokenHeaderNames.TwitterAccessToken)]
-        [InlineData(typeof(EasyAuthFacebookService), "facebook", AuthTokenHeaderNames.FacebookAccessToken)]
-        [InlineData(typeof(EasyAuthGoogleService), "google", AuthTokenHeaderNames.GoogleIdToken)]
-        [InlineData(typeof(EasyAuthMicrosoftService), "microsoftaccount", AuthTokenHeaderNames.MicrosoftAccessToken)]
-        public void IfAValidJwtTokenIsInTheHeaderTheResultIsSuccsess(Type authServiceType, string idpName, string requiredHeader)
+        [InlineData(typeof(EasyAuthAzureAdService))]
+        [InlineData(typeof(EasyAuthTwitterService))]
+        [InlineData(typeof(EasyAuthFacebookService))]
+        [InlineData(typeof(EasyAuthGoogleService))]
+        [InlineData(typeof(EasyAuthMicrosoftService))]
+        public void IfAValidJwtTokenIsInTheHeaderTheResultIsSuccsess(Type authServiceType)
         {
             // Arrange
             var handler = this.CreateServiceInstance(authServiceType);
@@ -92,12 +92,12 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test.Services
         }
 
         [Theory]
-        [InlineData(typeof(EasyAuthAzureAdService), "aad", AuthTokenHeaderNames.AADIdToken)]
-        [InlineData(typeof(EasyAuthTwitterService), "twitter", AuthTokenHeaderNames.TwitterAccessToken)]
-        [InlineData(typeof(EasyAuthFacebookService), "facebook", AuthTokenHeaderNames.FacebookAccessToken)]
-        [InlineData(typeof(EasyAuthGoogleService), "google", AuthTokenHeaderNames.GoogleIdToken)]
-        [InlineData(typeof(EasyAuthMicrosoftService), "microsoftaccount", AuthTokenHeaderNames.MicrosoftAccessToken)]
-        public void IfACustomOptionsIsInTheHeaderTheResultIsSuccsess(Type authServiceType, string idpName, string requiredHeader)
+        [InlineData(typeof(EasyAuthAzureAdService))]
+        [InlineData(typeof(EasyAuthTwitterService))]
+        [InlineData(typeof(EasyAuthFacebookService))]
+        [InlineData(typeof(EasyAuthGoogleService))]
+        [InlineData(typeof(EasyAuthMicrosoftService))]
+        public void IfACustomOptionsIsInTheHeaderTheResultIsSuccsess(Type authServiceType)
         {
             // Arrange
             var handler = this.CreateServiceInstance(authServiceType);
