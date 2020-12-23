@@ -42,7 +42,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services.Base
         protected ILogger Logger { get; }
 
         /// <inheritdoc/>
-        public bool CanHandleAuthentification(HttpContext httpContext)
+        protected bool CanHandleAuthentification(HttpContext httpContext)
         {
             var headers = httpContext.Request.Headers;
             var user = httpContext.User;
@@ -55,7 +55,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services.Base
         /// </summary>
         /// <param name="context">Http context of the request.</param>        
         /// <returns>An <see cref="AuthenticateResult" />.</returns>
-        public AuthenticateResult AuthUser(HttpContext context) => this.AuthUser(context, null);
+        protected AuthenticateResult AuthUser(HttpContext context) => this.AuthUser(context, null);
 
         /// <summary>
         /// build up identity from <see cref="PrincipalObjectHeader"/> header set by EasyAuth filters if user openId connect session cookie or oauth bearer token authenticated ...
@@ -63,7 +63,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services.Base
         /// <param name="context">Http context of the request.</param>
         /// <param name="options">The <c>EasyAuthAuthenticationOptions</c> to use.</param>
         /// <returns>An <see cref="AuthenticateResult" />.</returns>
-        public AuthenticateResult AuthUser(HttpContext context, ProviderOptions? options)
+        protected AuthenticateResult AuthUser(HttpContext context, ProviderOptions? options)
         {
             this.defaultOptions.ChangeModel(options);
 
@@ -90,5 +90,9 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services.Base
             var claims = JsonConvert.DeserializeObject<IEnumerable<AADClaimsModel>>(xMsClientPrincipal["claims"].ToString());
             return AuthenticationTicketBuilder.Build(claims, providerName, options);
         }
+
+        bool IEasyAuthAuthentificationService.CanHandleAuthentification(HttpContext httpContext) => this.CanHandleAuthentification(httpContext);
+        AuthenticateResult IEasyAuthAuthentificationService.AuthUser(HttpContext context) => this.AuthUser(context);
+        AuthenticateResult IEasyAuthAuthentificationService.AuthUser(HttpContext context, ProviderOptions options) => this.AuthUser(context, options);
     }
 }

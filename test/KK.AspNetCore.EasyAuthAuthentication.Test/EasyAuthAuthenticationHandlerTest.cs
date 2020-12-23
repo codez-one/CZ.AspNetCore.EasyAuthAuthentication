@@ -302,6 +302,10 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Test
             }
 
             public bool CanHandleAuthentification(HttpContext httpContext) => true;
+
+            bool IEasyAuthAuthentificationService.CanHandleAuthentification(HttpContext httpContext) => this.CanHandleAuthentification(httpContext);
+            AuthenticateResult IEasyAuthAuthentificationService.AuthUser(HttpContext context) => this.AuthUser(context);
+            AuthenticateResult IEasyAuthAuthentificationService.AuthUser(HttpContext context, ProviderOptions options) => this.AuthUser(context, options);
         }
     }
 }

@@ -38,10 +38,10 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
         public EasyAuthForAuthorizationTokenService(ILogger<EasyAuthForAuthorizationTokenService> logger) => this.logger = logger;
 
         /// <inheritdoc/>
-        public AuthenticateResult AuthUser(HttpContext context) => this.AuthUser(context, null);
+        private AuthenticateResult AuthUser(HttpContext context) => this.AuthUser(context, null);
 
         /// <inheritdoc/>
-        public AuthenticateResult AuthUser(HttpContext context, ProviderOptions? options)
+        private AuthenticateResult AuthUser(HttpContext context, ProviderOptions? options)
         {
             this.defaultOptions.ChangeModel(options);
 
@@ -64,7 +64,7 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
         }
 
         /// <inheritdoc/>
-        public bool CanHandleAuthentification(HttpContext httpContext) =>
+        private bool CanHandleAuthentification(HttpContext httpContext) =>
             IsHeaderSet(httpContext.Request.Headers, AuthorizationHeader) &&
             httpContext.Request.Headers[AuthorizationHeader].FirstOrDefault().Contains(JWTIdentifier);
 
@@ -111,5 +111,9 @@ namespace KK.AspNetCore.EasyAuthAuthentication.Services
                    );
             return xMsClientPrincipal;
         }
+
+        bool IEasyAuthAuthentificationService.CanHandleAuthentification(HttpContext httpContext) => this.CanHandleAuthentification(httpContext);
+        AuthenticateResult IEasyAuthAuthentificationService.AuthUser(HttpContext context) => this.AuthUser(context);
+        AuthenticateResult IEasyAuthAuthentificationService.AuthUser(HttpContext context, ProviderOptions options) => this.AuthUser(context, options);
     }
 }
