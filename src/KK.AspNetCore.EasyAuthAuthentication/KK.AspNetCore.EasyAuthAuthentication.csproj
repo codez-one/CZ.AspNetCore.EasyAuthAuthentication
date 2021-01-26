@@ -4,10 +4,27 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <!-- For source link -->
+  <PropertyGroup>
+    <!-- Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+    <!-- Embed source files that are not tracked by the source control manager in the PDB -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <!-- Recommended: Embed symbols containing Source Link in the main file (exe/dll) -->
+    <DebugType>embedded</DebugType>
+
+  </PropertyGroup>
+  <!-- This is only for azure devops. This makes the build deterministic so the source link can found simpler. Don't use this for development. You wouldn't able to debug. -->
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
   <PropertyGroup>
     <Authors>Kirsten Kluge</Authors>
-    <PackageProjectUrl>https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/codez-one/CZ.AspNetCore.EasyAuthAuthentication</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/codez-one/CZ.AspNetCore.EasyAuthAuthentication</RepositoryUrl>
     <Description>This helps getting azure appservice authentication working with asp.net core</Description>
     <PackageReleaseNotes>
       - Add support for azure ad application
@@ -17,13 +34,14 @@
       - add a new quickstart guide
       - add errors if the azure app service is configured wrong
       - add test so we avoid breaking changes
+      - add source link for simpler development
     </PackageReleaseNotes>
     <Copyright>MIT</Copyright>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <WarningsAsErrors>
-      CS8600;CS8602;CS8603<!--The identifiers are all for nullable errors. See here: https://www.tabsoverspaces.com/233764-switch-to-errors-instead-of-warnings-for-nullable-reference-types-in-csharp-8-->      
+      CS8600;CS8602;CS8603      <!--The identifiers are all for nullable errors. See here: https://www.tabsoverspaces.com/233764-switch-to-errors-instead-of-warnings-for-nullable-reference-types-in-csharp-8-->
     </WarningsAsErrors>
   </PropertyGroup>
 
@@ -34,5 +52,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.3.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
   </ItemGroup>
 </Project>
