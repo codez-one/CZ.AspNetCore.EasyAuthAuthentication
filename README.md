@@ -1,4 +1,4 @@
-# KK.AspNetCore.EasyAuthAuthentication
+# CZ.AspNetCore.EasyAuthAuthentication
 
 This helps getting azure appservice authentication working with asp.net core.
 
@@ -8,30 +8,30 @@ The EasyAuth handler is provided as a nuget package and can be found on nuget.or
 
 | Name                                 | Status                                                                                                                                                          |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| KK.AspNetCore.EasyAuthAuthentication | [![Nuget Badge](https://img.shields.io/nuget/v/KK.AspNetCore.EasyAuthAuthentication.svg)](https://www.nuget.org/packages/KK.AspNetCore.EasyAuthAuthentication/) |
+| CZ.AspNetCore.EasyAuthAuthentication | [![Nuget Badge](https://img.shields.io/nuget/v/CZ.AspNetCore.EasyAuthAuthentication.svg)](https://www.nuget.org/packages/CZ.AspNetCore.EasyAuthAuthentication/) |
 
 You can add the package for example with the following `dotnet` command:
 
 ```bash
-dotnet add package KK.AspNetCore.EasyAuthAuthentication
+dotnet add package CZ.AspNetCore.EasyAuthAuthentication
 ```
 
-Pre-releases of this Package are pushed to an internal <a href="https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=KK.AspNetCore.EasyAuthAuthentication" target="_blank">feed an Azure DevOps</a>.
+Pre-releases of this Package are pushed to an internal <a href="https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=CZ.AspNetCore.EasyAuthAuthentication" target="_blank">feed an Azure DevOps</a>.
 
-There are also access to packages from pull requests in another <a href="https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=KK.AspNetCore.EasyAuthAuthentication-PR" target="_blank">Azure DevOps feed</a>. All Packages in this feed has a name like this: `PR-{pull request number}-KK.AspNetCore.EasyAuthAuthentication`. So you must only pick the package of your PR to check your changes in a test project. All changes of the pull request are tracked in the pull request package version history.
+There are also access to packages from pull requests in another <a href="https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=CZ.AspNetCore.EasyAuthAuthentication-PR" target="_blank">Azure DevOps feed</a>. All Packages in this feed has a name like this: `PR-{pull request number}-CZ.AspNetCore.EasyAuthAuthentication`. So you must only pick the package of your PR to check your changes in a test project. All changes of the pull request are tracked in the pull request package version history.
 
 ## Build
 
-The build environment for this project is on Azure DevOps and can be found here [dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication](https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_build).
+The build environment for this project is on Azure DevOps and can be found here [dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_build).
 
 ### Nuget package build
 
 | Name                                    | Status                                                                                                                                                                                                                                             |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| KK.AspNetCore.EasyAuthAuthentication-CI | [![Build Status](https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_apis/build/status/KK.AspNetCore.EasyAuthAuthentication-CI)](https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_build/latest?definitionId=24) |
-| Alpha                                   | [![Alpha](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/1)](https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                       |
-| Beta                                    | [![Beta](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/2)](https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                        |
-| Release                                 | [![Release](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/3)](https://dev.azure.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                     |
+| CZ.AspNetCore.EasyAuthAuthentication-CI | [![Build Status](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_apis/build/status/CZ.AspNetCore.EasyAuthAuthentication-CI)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_build/latest?definitionId=24) |
+| Alpha                                   | [![Alpha](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/1)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                       |
+| Beta                                    | [![Beta](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/2)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                        |
+| Release                                 | [![Release](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/3)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                     |
 
 ## Quickstart
 
@@ -319,7 +319,7 @@ If your users are primary come from twitter use this provider.
 -   **Suzuko123** - _Dropped some knowledge about Service Principals with easy auth_ - [Suzuko123](https://github.com/Suzuko123)
 - **MaximRouiller** - _Dropped the idea to check if the app service is configured right. .[MaximRouiller](https://github.com/MaximRouiller)
 
-See also the list of [contributors](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/graphs/contributors) who participated in this project.
 
 ## License
 
