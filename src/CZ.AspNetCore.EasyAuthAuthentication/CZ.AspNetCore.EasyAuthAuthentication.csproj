@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Authors>Kirsten Kluge</Authors>
+    <Authors>Kirsten Kluge, paule96</Authors>
     <PackageProjectUrl>https://github.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication</RepositoryUrl>
     <Description>This helps getting azure appservice authentication working with asp.net core</Description>
