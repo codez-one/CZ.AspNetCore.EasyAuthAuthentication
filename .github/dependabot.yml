@@ -2,8 +2,8 @@
 
 version: 2
 updates:
-  # Maintain dependencies for Composer
   - package-ecosystem: "nuget"
-    directory: "/src/"
+    directory: "/src/CZ.AspNetCore.EasyAuthAuthentication" #CZ.AspNetCore.EasyAuthAuthentication.csproj
     schedule:
       interval: "weekly"
+      day: "wednesday"
