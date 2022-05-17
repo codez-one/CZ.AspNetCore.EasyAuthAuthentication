@@ -25,7 +25,7 @@ namespace CZ.AspNetCore.EasyAuthAuthentication
         private static readonly Func<IHeaderDictionary, string, bool> IsHeaderSet =
             (headers, headerName) => !string.IsNullOrEmpty(headers[headerName].ToString());
 
-        private static Func<IHeaderDictionary, ClaimsPrincipal, HttpRequest, EasyAuthAuthenticationOptions, bool> CanUseEasyAuthJson =
+        private Func<IHeaderDictionary, ClaimsPrincipal, HttpRequest, EasyAuthAuthenticationOptions, bool> CanUseEasyAuthJson =
             (headers, user, request, options) =>
                 IsContextUserNotAuthenticated(user)
                 && !IsHeaderSet(headers, AuthTokenHeaderNames.AADIdToken);
@@ -58,7 +58,7 @@ namespace CZ.AspNetCore.EasyAuthAuthentication
         {
             var authEnabled = this.appConfiguration.GetValue<bool?>("APPSETTING_WEBSITE_AUTH_ENABLED");
             var allowAnoymos = this.appConfiguration.GetValue<string?>("APPSETTING_WEBSITE_AUTH_UNAUTHENTICATED_ACTION") == "AllowAnonymous" ? true : false;
-            if(authEnabled == null || authEnabled == false)
+            if (authEnabled == null || authEnabled == false)
             {
                 // auth is turned of. So hopefully the user is in local debugging.
                 return;
