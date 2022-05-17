@@ -16,22 +16,22 @@ You can add the package for example with the following `dotnet` command:
 dotnet add package CZ.AspNetCore.EasyAuthAuthentication
 ```
 
-Pre-releases of this Package are pushed to an internal <a href="https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=CZ.AspNetCore.EasyAuthAuthentication" target="_blank">feed an Azure DevOps</a>.
+Pre-releases of this Package are pushed to an internal <a href="https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=CZ.AspNetCore.EasyAuthAuthentication" target="_blank">feed an Azure DevOps</a>.
 
-There are also access to packages from pull requests in another <a href="https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=CZ.AspNetCore.EasyAuthAuthentication-PR" target="_blank">Azure DevOps feed</a>. All Packages in this feed has a name like this: `PR-{pull request number}-CZ.AspNetCore.EasyAuthAuthentication`. So you must only pick the package of your PR to check your changes in a test project. All changes of the pull request are tracked in the pull request package version history.
+There are also access to packages from pull requests in another <a href="https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_packaging?_a=feed&feed=CZ.AspNetCore.EasyAuthAuthentication-PR" target="_blank">Azure DevOps feed</a>. All Packages in this feed has a name like this: `PR-{pull request number}-CZ.AspNetCore.EasyAuthAuthentication`. So you must only pick the package of your PR to check your changes in a test project. All changes of the pull request are tracked in the pull request package version history.
 
 ## Build
 
-The build environment for this project is on Azure DevOps and can be found here [dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_build).
+The build environment for this project is on Azure DevOps and can be found here [dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_build).
 
 ### Nuget package build
 
 | Name                                    | Status                                                                                                                                                                                                                                             |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CZ.AspNetCore.EasyAuthAuthentication-CI | [![Build Status](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_apis/build/status/CZ.AspNetCore.EasyAuthAuthentication-CI)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_build/latest?definitionId=24) |
-| Alpha                                   | [![Alpha](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/1)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                       |
-| Beta                                    | [![Beta](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/2)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                        |
-| Release                                 | [![Release](https://vsrm.dev.azure.com/kirkone/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/3)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                     |
+| CZ.AspNetCore.EasyAuthAuthentication-CI | [![Build Status](https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_apis/build/status/CZ.AspNetCore.EasyAuthAuthentication-CI)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_build/latest?definitionId=24) |
+| Alpha                                   | [![Alpha](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/1)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                       |
+| Beta                                    | [![Beta](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/2)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                        |
+| Release                                 | [![Release](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/3)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                     |
 
 ## Quickstart
 
