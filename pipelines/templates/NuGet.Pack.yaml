@@ -16,6 +16,6 @@ steps:
       packagesToPack: '$(Project)'
       nobuild: true
       arguments: '--configuration $(buildConfiguration) --no-restore'
-      buildProperties: '${{ parameters.buildProperties }}'
+      buildProperties: '${{ parameters.buildProperties }};ContinuousIntegrationBuild=true;'
       packDirectory: '$(Build.ArtifactStagingDirectory)'
       verbosityPack: Normal
