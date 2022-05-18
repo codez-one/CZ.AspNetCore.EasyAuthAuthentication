@@ -28,10 +28,10 @@ The build environment for this project is on Azure DevOps and can be found here 
 
 | Name                                    | Status                                                                                                                                                                                                                                             |
 | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CZ.AspNetCore.EasyAuthAuthentication-CI | [![Build Status](https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_apis/build/status/CZ.AspNetCore.EasyAuthAuthentication-CI)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_build/latest?definitionId=24) |
-| Alpha                                   | [![Alpha](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/1)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                       |
-| Beta                                    | [![Beta](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/2)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                        |
-| Release                                 | [![Release](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/b206bf59-b281-4d06-91c3-3877c3aeaaf9/1/3)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=1&_a=releases)                     |
+| CZ.AspNetCore.EasyAuthAuthentication-CI | [![Build Status](https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_apis/build/status/CZ.AspNetCore.EasyAuthAuthentication-CI)](https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_build/latest?definitionId=7) |
+| Alpha                                   | [![Alpha](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/bc4d5ed4-f7f8-4b67-9212-2dadeae79439/2/2)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=2&_a=releases)                       |
+| Beta                                    | [![Beta](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/bc4d5ed4-f7f8-4b67-9212-2dadeae79439/2/3)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=2&_a=releases)                        |
+| Release                                 | [![Release](https://vsrm.dev.azure.com/czon/_apis/public/Release/badge/bc4d5ed4-f7f8-4b67-9212-2dadeae79439/2/4)](https://dev.azure.com/kirkone/CZ.AspNetCore.EasyAuthAuthentication/_releases2?definitionId=2&_a=releases)                     |
 
 ## Quickstart
 
