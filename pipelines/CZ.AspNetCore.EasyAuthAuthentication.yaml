@@ -10,7 +10,7 @@ pr:
   autoCancel: true
   branches:
     include:
-      - master
+      - '*'
 
 pool:
   vmImage: 'windows-latest'
@@ -36,7 +36,9 @@ stages:
             displayName: 'Install dotnet core SDK'
             inputs:
               packageType: 'sdk'
-              useGlobalJson: true
+              # because use global json currently takes always the defined version
+              # and ignores the `rollForward` flag we fall back to this:
+              version: 3.1.x
 
           - task: DotNetCoreCLI@2
             displayName: 'Install GitVersion: $(GitVersion)'
@@ -64,7 +66,7 @@ stages:
             inputs:
               command: 'build'
               projects: '$(Project)'
-              arguments: '--configuration $(buildConfiguration) --no-restore'
+              arguments: '--configuration $(buildConfiguration) --no-restore /p:ContinuousIntegrationBuild=true'
 
           - task: DotNetCoreCLI@2
             displayName: 'Test'
