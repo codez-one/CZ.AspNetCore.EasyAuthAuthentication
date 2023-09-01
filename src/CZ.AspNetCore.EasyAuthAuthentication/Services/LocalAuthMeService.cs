@@ -5,6 +5,7 @@ namespace CZ.AspNetCore.EasyAuthAuthentication.Services
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Security.Claims;
@@ -87,12 +88,12 @@ namespace CZ.AspNetCore.EasyAuthAuthentication.Services
 
         private AuthenticationTicket BuildIdentityFromEasyAuthMeJson(JObject payload)
         {
-            var providerName = payload["provider_name"].Value<string>();
+            var providerName = payload["provider_name"]?.Value<string>();
             this.Logger.LogDebug($"payload was fetched from easyauth me json, provider: {providerName}");
 
             this.Logger.LogInformation("building claims from payload...");
             return AuthenticationTicketBuilder.Build(
-                    JsonConvert.DeserializeObject<IEnumerable<AADClaimsModel>>(payload["user_claims"].ToString()),
+                    JsonConvert.DeserializeObject<IEnumerable<AADClaimsModel>>(payload["user_claims"]?.ToString() ?? "[]") ?? Enumerable.Empty<AADClaimsModel>(),
                     providerName,
                     this.defaultOptions.GetProviderOptions()
                 );

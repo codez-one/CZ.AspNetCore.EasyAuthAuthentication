@@ -2,6 +2,7 @@ namespace CZ.AspNetCore.EasyAuthAuthentication.Services.Base
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Security.Claims;
     using System.Text;
     using CZ.AspNetCore.EasyAuthAuthentication.Interfaces;
@@ -87,8 +88,8 @@ namespace CZ.AspNetCore.EasyAuthAuthentication.Services.Base
                             Convert.FromBase64String(headerContent)
                         )
                     );
-            var claims = JsonConvert.DeserializeObject<IEnumerable<AADClaimsModel>>(xMsClientPrincipal["claims"].ToString());
-            return AuthenticationTicketBuilder.Build(claims, providerName, options);
+            var claims = JsonConvert.DeserializeObject<IEnumerable<AADClaimsModel>>(xMsClientPrincipal["claims"]?.ToString() ?? "[]");
+            return AuthenticationTicketBuilder.Build(claims ?? Enumerable.Empty<AADClaimsModel>(), providerName, options);
         }
 
         bool IEasyAuthAuthentificationService.CanHandleAuthentification(HttpContext httpContext) => this.CanHandleAuthentification(httpContext);

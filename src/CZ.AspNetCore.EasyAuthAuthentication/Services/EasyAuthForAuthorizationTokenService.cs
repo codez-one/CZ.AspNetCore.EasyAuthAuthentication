@@ -76,7 +76,7 @@ namespace CZ.AspNetCore.EasyAuthAuthentication.Services
             {
                 this.logger.LogDebug($"payload was {xMsClientPrincipal[this.defaultOptions.RoleClaimType]}");
 
-                claims.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(xMsClientPrincipal[this.defaultOptions.RoleClaimType].ToString())
+                claims.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(xMsClientPrincipal[this.defaultOptions.RoleClaimType]?.ToString() ?? "[]")
                         .Select(r => new AADClaimsModel { Typ = this.defaultOptions.RoleClaimType, Values = r }));
             }
             var otherClaims = xMsClientPrincipal.Properties()
@@ -88,8 +88,8 @@ namespace CZ.AspNetCore.EasyAuthAuthentication.Services
             {
                 Typ = options.NameClaimType,
                 Values = xMsClientPrincipal.ContainsKey("upn") ?
-                    xMsClientPrincipal["upn"].ToString() : // this appends if an user is using the auth token from the /.auth/me site on the website
-                    xMsClientPrincipal["appid"].ToString() // this appends if an application is try accessing the app.
+                    xMsClientPrincipal["upn"]?.ToString() ?? string.Empty : // this appends if an user is using the auth token from the /.auth/me site on the website
+                    xMsClientPrincipal["appid"]?.ToString() ?? string.Empty // this appends if an application is try accessing the app.
             });
             return claims;
         }

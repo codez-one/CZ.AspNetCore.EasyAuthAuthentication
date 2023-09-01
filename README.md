@@ -16,9 +16,9 @@ You can add the package for example with the following `dotnet` command:
 dotnet add package CZ.AspNetCore.EasyAuthAuthentication
 ```
 
-Pre-releases of this Package are pushed to an internal <a href="https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_artifacts/feed/czon" target="_blank">feed an Azure DevOps</a>.
+Pre-releases of this Package are pushed to an internal <a href="https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_artifacts/feed/CZ.AspNetCore.EasyAuthAuthentication" target="_blank">feed on Azure DevOps</a>.
 
-There are also access to packages from pull requests in another <a href="https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_artifacts/feed/czon-pr" target="_blank">Azure DevOps feed</a>. All Packages in this feed has a name like this: `PR-{pull request number}-CZ.AspNetCore.EasyAuthAuthentication`. So you must only pick the package of your PR to check your changes in a test project. All changes of the pull request are tracked in the pull request package version history.
+> Note: For internal team members, there are also access to packages from pull requests in another <a href="https://dev.azure.com/czon/CZ.AspNetCore.EasyAuthAuthentication/_artifacts/feed/czon-pr" target="_blank">Azure DevOps feed</a>. All Packages in this feed has a name like this: `PR-{pull request number}-CZ.AspNetCore.EasyAuthAuthentication`. So you must only pick the package of your PR to check your changes in a test project. All changes of the pull request are tracked in the pull request package version history.
 
 ## Build
 
