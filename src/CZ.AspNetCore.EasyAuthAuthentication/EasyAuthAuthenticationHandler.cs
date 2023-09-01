@@ -79,32 +79,39 @@ namespace CZ.AspNetCore.EasyAuthAuthentication
 
             var authService = this.authenticationServices.FirstOrDefault(d => d.CanHandleAuthentification(this.Context));
             var enabledProviders = this.Options.ProviderOptions.Where(d => d.Enabled == true);
-            if (authService != null && enabledProviders.Any(d => d.ProviderName == authService.GetType().Name))
+            try
             {
-                this.Logger.LogInformation($"use the {authService.GetType().Name} as auth handler.");
-                return authService.AuthUser(this.Context, this.Options.ProviderOptions.FirstOrDefault(d => d.ProviderName == authService.GetType().Name));
-            }
-            else if (CanUseEasyAuthJson(this.Context.Request.Headers, this.Context.User, this.Context.Request, this.Options))
-            {
-                var service = new LocalAuthMeService(this.Logger,
-                    this.Context.Request.Scheme,
-                    this.Context.Request.Host.ToString(),
-                    this.Context.Request.Cookies,
-                    this.Context.Request.Headers);
-                return await service.AuthUser(this.Context, this.Options.LocalProviderOption);
-            }
-            else
-            {
-                if (IsContextUserNotAuthenticated(this.Context.User))
+                if (authService != null && enabledProviders.Any(d => d.ProviderName == authService.GetType().Name))
                 {
-                    this.Logger.LogInformation("The identity isn't set by easy auth.");
+                    this.Logger.LogInformation($"use the {authService.GetType().Name} as auth handler.");
+                    return authService.AuthUser(this.Context, this.Options.ProviderOptions.FirstOrDefault(d => d.ProviderName == authService.GetType().Name));
+                }
+                else if (CanUseEasyAuthJson(this.Context.Request.Headers, this.Context.User, this.Context.Request, this.Options))
+                {
+                    var service = new LocalAuthMeService(this.Logger,
+                        this.Context.Request.Scheme,
+                        this.Context.Request.Host.ToString(),
+                        this.Context.Request.Cookies,
+                        this.Context.Request.Headers);
+                    return await service.AuthUser(this.Context, this.Options.LocalProviderOption);
                 }
                 else
                 {
-                    this.Logger.LogInformation("identity already set, skipping middleware");
-                }
+                    if (IsContextUserNotAuthenticated(this.Context.User))
+                    {
+                        this.Logger.LogInformation("The identity isn't set by easy auth.");
+                    }
+                    else
+                    {
+                        this.Logger.LogInformation("identity already set, skipping middleware");
+                    }
 
-                return AuthenticateResult.NoResult();
+                    return AuthenticateResult.NoResult();
+                }
+            } 
+            catch (Exception ex)
+            {
+                return AuthenticateResult.Fail(ex);
             }
         }
     }

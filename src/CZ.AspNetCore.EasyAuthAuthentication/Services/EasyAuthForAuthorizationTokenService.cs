@@ -66,7 +66,7 @@ namespace CZ.AspNetCore.EasyAuthAuthentication.Services
         /// <inheritdoc/>
         private bool CanHandleAuthentification(HttpContext httpContext) =>
             IsHeaderSet(httpContext.Request.Headers, AuthorizationHeader) &&
-            httpContext.Request.Headers[AuthorizationHeader].FirstOrDefault().Contains(JWTIdentifier);
+            httpContext.Request.Headers[AuthorizationHeader].FirstOrDefault()?.Contains(JWTIdentifier) == true;
 
         private IEnumerable<AADClaimsModel> BuildFromAuthToken(JObject xMsClientPrincipal, ProviderOptions options)
         {
